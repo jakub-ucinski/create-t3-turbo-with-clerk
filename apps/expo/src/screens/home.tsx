@@ -15,8 +15,8 @@ const SignOut = () => {
     <View className="rounded-lg border-2 border-gray-500 p-4">
       <Button
         title="Sign Out"
-        onPress={() => {
-          signOut();
+        onPress={async () => {
+          await signOut();
         }}
       />
     </View>
@@ -35,7 +35,7 @@ const PostCard: React.FC<{
 };
 
 const CreatePost: React.FC = () => {
-  const utils = trpc.useContext();
+  const utils = trpc.useUtils();
   const { mutate } = trpc.post.create.useMutation({
     async onSuccess() {
       await utils.post.all.invalidate();
@@ -74,7 +74,7 @@ const CreatePost: React.FC = () => {
 
 export const HomeScreen = () => {
   const postQuery = trpc.post.all.useQuery();
-  const [showPost, setShowPost] = React.useState<string | null>(null);
+  const [showPost, setShowPost] = React.useState<number | null>(null);
 
   return (
     <SafeAreaView className="bg-[#2e026d] bg-gradient-to-b from-[#2e026d] to-[#15162c]">
