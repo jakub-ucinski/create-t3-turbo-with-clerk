@@ -1,9 +1,5 @@
 import { authMiddleware } from "@clerk/nextjs";
 
-
-
-
-
 export default authMiddleware({});
 
 // Stop Middleware running on static files

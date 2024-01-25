@@ -1,8 +1,6 @@
+import type { CreateNextContextOptions } from "@trpc/server/adapters/next";
 import { getAuth } from "@clerk/nextjs/server";
-import {
-  createNextApiHandler,
-  CreateNextContextOptions,
-} from "@trpc/server/adapters/next";
+import { createNextApiHandler } from "@trpc/server/adapters/next";
 
 import { appRouter, createContextInner } from "@acme/api";
 
