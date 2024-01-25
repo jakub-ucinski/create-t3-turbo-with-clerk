@@ -1,10 +1,11 @@
-import { router, publicProcedure, protectedProcedure } from "../trpc";
 import { z } from "zod";
 
 import { desc, eq, schema } from "@acme/db";
 import { CreatePostSchema } from "@acme/validators";
 
-export const postRouter = router({
+import { createTRPCRouter, protectedProcedure, publicProcedure } from "../trpc";
+
+export const postRouter = createTRPCRouter({
   all: publicProcedure.query(({ ctx }) => {
     return ctx.db.query.post.findMany({
       orderBy: desc(schema.post.id),

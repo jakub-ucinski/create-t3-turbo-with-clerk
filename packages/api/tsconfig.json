@@ -3,12 +3,6 @@
   "compilerOptions": {
     "tsBuildInfoFile": "node_modules/.cache/tsbuildinfo.json"
   },
-  "include": ["src", "index.ts", "transformer.ts"],
+  "include": ["src"],
   "exclude": ["node_modules"]
 }
-
-// {
-//   "extends": "../../tsconfig.json",
-//   "include": ["src", "index.ts", "transformer.ts"]
-// }
-
